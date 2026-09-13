@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+      .text-center{
+        
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    
+     <p class="text-center">
+      rock paper scissors
+    </p>
+    <button onclick="
+   
+ const computerMove = pickComputerMove();
+let result='';
+if(computerMove===`rock`)
+{
+  result='tie';
+}
+else if(computerMove===`paper`)
+{
+  result='lose';
+}
+else if(computerMove===`scissors`)
+{
+  result='win';
+}
+alert(`You ${result}!`);
+    ">
+      rock
+    </button>
+    <button onclick="
+     const computerMove = pickComputerMove();
+let result='';
+if(computerMove===`rock`)
+{
+  result='win';
+}
+else if(computerMove===`paper`)
+{
+  result='tie';
+}
+else if(computerMove===`scissors`)
+{
+  result='lose';
+}
+alert(`You ${result}!`);
+    ">
+      paper
+    </button>
+    <button onclick="
+     const computerMove = pickComputerMove();
+let result='';
+if(computerMove===`rock`)
+{
+  result='lose';
+}
+else if(computerMove===`paper`)
+{
+  result='win';
+}
+else if(computerMove===`scissors`)
+{
+  result='tie';
+}
+alert(`You ${result}!`);
+    ">
+      scissors
+    </button>
+
+    <script>
+      
+function pickComputerMove()
+{
+randomNumber=Math.random();
+    computerMove=``;
+    if(randomNumber>=0&&randomNumber<1/3)
+    {
+      computerMove=`rock`;
+    }
+      else if(randomNumber>=1/3&&randomNumber<2/3)
+    {
+      computerMove=`paper`;
+    }
+    else if(randomNumber>=2/3&&randomNumber<1)
+    {
+       computerMove=`scissors`;
+    }
+console.log(computerMove);
+return computerMove;
+}
+    </script>
+   
+  </body>
+</html>
