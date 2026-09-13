@@ -16,11 +16,11 @@
     </p>
     <button onclick="
    
-     randomNumber=Math.random();
-      computerMove=``;
+ randomNumber=Math.random();
+    computerMove=``;
     if(randomNumber>=0&&randomNumber<1/3)
     {
-      comptuterMove=`rock`;
+      computerMove=`rock`;
     }
       else if(randomNumber>=1/3&&randomNumber<2/3)
     {
@@ -31,13 +31,87 @@
        computerMove=`scissors`;
     }
 console.log(computerMove);
+let result='';
+if(computerMove===`rock`)
+{
+  result='tie';
+}
+else if(computerMove===`paper`)
+{
+  result='lose';
+}
+else if(computerMove===`scissors`)
+{
+  result='win';
+}
+alert(`You ${result}!`);
     ">
       rock
     </button>
-    <button>
+    <button onclick="
+     randomNumber=Math.random();
+    computerMove=``;
+    if(randomNumber>=0&&randomNumber<1/3)
+    {
+      computerMove=`rock`;
+    }
+      else if(randomNumber>=1/3&&randomNumber<2/3)
+    {
+      computerMove=`paper`;
+    }
+    else if(randomNumber>=2/3&&randomNumber<1)
+    {
+       computerMove=`scissors`;
+    }
+console.log(computerMove);
+let result='';
+if(computerMove===`rock`)
+{
+  result='win';
+}
+else if(computerMove===`paper`)
+{
+  result='tie';
+}
+else if(computerMove===`scissors`)
+{
+  result='lose';
+}
+alert(`You ${result}!`);
+    ">
       paper
     </button>
-    <button>
+    <button onclick="
+     randomNumber=Math.random();
+    computerMove=``;
+    if(randomNumber>=0&&randomNumber<1/3)
+    {
+      computerMove=`rock`;
+    }
+      else if(randomNumber>=1/3&&randomNumber<2/3)
+    {
+      computerMove=`paper`;
+    }
+    else if(randomNumber>=2/3&&randomNumber<1)
+    {
+       computerMove=`scissors`;
+    }
+console.log(computerMove);
+let result='';
+if(computerMove===`rock`)
+{
+  result='lose';
+}
+else if(computerMove===`paper`)
+{
+  result='win';
+}
+else if(computerMove===`scissors`)
+{
+  result='tie';
+}
+alert(`You ${result}!`);
+    ">
       scissors
     </button>
 
