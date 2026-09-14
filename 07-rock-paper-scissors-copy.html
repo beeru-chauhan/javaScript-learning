@@ -16,64 +16,77 @@
     </p>
     <button onclick="
    
- const computerMove = pickComputerMove();
-let result='';
-if(computerMove===`rock`)
-{
-  result='tie';
-}
-else if(computerMove===`paper`)
-{
-  result='lose';
-}
-else if(computerMove===`scissors`)
-{
-  result='win';
-}
-alert(`You ${result}!`);
+ 
     ">
       rock
     </button>
     <button onclick="
-     const computerMove = pickComputerMove();
-let result='';
-if(computerMove===`rock`)
-{
-  result='win';
-}
-else if(computerMove===`paper`)
-{
-  result='tie';
-}
-else if(computerMove===`scissors`)
-{
-  result='lose';
-}
-alert(`You ${result}!`);
+     
+
     ">
       paper
     </button>
     <button onclick="
-     const computerMove = pickComputerMove();
-let result='';
-if(computerMove===`rock`)
-{
-  result='lose';
-}
-else if(computerMove===`paper`)
-{
-  result='win';
-}
-else if(computerMove===`scissors`)
-{
-  result='tie';
-}
-alert(`You ${result}!`);
+    playgame()
     ">
       scissors
     </button>
 
     <script>
+      function playgame(playerMove)
+      {
+ const computerMove = pickComputerMove();
+let result='';
+if(playerMove==='scissors')
+{
+      if(computerMove===`rock`)
+      {
+        result='lose';
+      }
+      else if(computerMove===`paper`)
+      {
+        result='win';
+      }
+      else if(computerMove===`scissors`)
+      {
+        result='tie';
+      }
+      alert(`You ${result}!`);
+}
+else if(playerMove==='paper')
+{
+ if(computerMove===`rock`)
+{
+  result='win';
+}
+else if(computerMove===`paper`)
+{
+  result='tie';
+}
+else if(computerMove===`scissors`)
+{
+  result='lose';
+}
+alert(`You ${result}!`); 
+}
+else if(playerMove==='rock')
+{
+if(computerMove===`rock`)
+{
+  result='tie';
+}
+else if(computerMove===`paper`)
+{
+  result='lose';
+}
+else if(computerMove===`scissors`)
+{
+  result='win';
+}
+alert(`You ${result}!`);
+}
+
+      }
       
 function pickComputerMove()
 {
