@@ -8,8 +8,18 @@
 
     <script>
 const number={
+  name2:  `pushpa bhau`,
 name: 'beeru chauhan',
-price: 1000
+price: 1000,
+'delivery-time':'monday',
+rating:{
+star:4.5,
+people:87,
+},
+func :function function1()
+{
+console.log("function inside a object");
+}
 };
 console.log(number);
 console.log(number.name);
@@ -20,7 +30,18 @@ number.value=10;
 console.log(number);
 delete number.name;
 console.log(number);
- 
+
+console.log(number.name2);
+console.log(number[`name2`])
+console.log(number[`delivery-time`]);
+console.log(number.rating);
+console.log(number.rating.people);
+number.func();
+console.log(typeof(console));
+console.log(typeof(console.log));
+console.log( JSON.stringify(number));
+const jsonstring=JSON.stringify(number);
+console.log(JSON.parse(jsonstring));
     </script>
  
   </body>
