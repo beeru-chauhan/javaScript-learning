@@ -7,6 +7,7 @@
   <body>
 
     <script>
+      /*
 const number={
   name2:  `pushpa bhau`,
 name: 'beeru chauhan',
@@ -43,7 +44,45 @@ console.log( JSON.stringify(number));
 const jsonstring=JSON.stringify(number);
 console.log(JSON.parse(jsonstring  ));
 console.log( localStorage.setItem('number',JSON.stringify(number)));
-console.log(localStorage.getItem('number'));
+console.log(localStorage.getItem('number')); */
+console.log("hello".length);
+console.log("hello".toUpperCase());
+const object1={
+  message:"hello"
+};
+console.log(object1.message);
+const object2=object1;
+object1.message="we can change the value!";
+console.log(object1.message);
+console.log(object2.message);
+console.log(object1===object2);
+const object3={
+  message:"we can change the value!"
+};
+console.log(object1===object3); 
+const object4={
+  message:'hello',
+  price:999
+};
+//const message=object4.message;
+const {message ,price}=object4;
+console.log(message);
+const object5={
+ // message: message,
+  //price:price
+  message,
+  price,
+//   method1: function func()
+//   {
+// console.log("method");
+//   }
+method1()
+{
+  console.log("method");
+}
+}
+console.log(object5);
+object5.method1();
     </script>
  
   </body>
