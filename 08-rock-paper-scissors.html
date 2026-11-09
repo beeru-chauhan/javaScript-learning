@@ -19,35 +19,28 @@
     <button onclick="playgame('paper');">
       paper
     </button>
-    <button onclick="playgame('scissors');
-    ">
+    <button onclick="playgame('scissors');">
       scissors
     </button>
 
+    <p class="js-update"></p>
     <button onclick="
-    score.win=0;
-    score.ties=0;
-    score.losses=0;
-    localStorage.removeItem('score');
+      score.win = 0;
+      score.ties = 0;
+      score.losses = 0;
+      localStorage.removeItem('score');
     ">restart score</button>  
 
 
     <script>
-      const score=JSON.parse(localStorage.getItem('score'));
-      console.log(localStorage.getItem('score') )||{
-  win:0,
-  ties:0,
-losses:0
-};
-/*
-      if(!score)
-    {
-score={
-  win:0,
-  ties:0,
-losses:0
-}
-    }*/
+      
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        win: 0,
+        ties: 0,
+        losses: 0
+      };
+      document.querySelector('.js-update').innerHTML=`wins: ${score.win}, ties: ${score.ties}, losses: ${score.losses}`;
+
       function playgame(playerMove) {
         const computerMove = pickComputerMove();
         let result = '';
@@ -77,22 +70,19 @@ losses:0
             result = 'win';
           }
         }
-        if(result==='win')
-        {
-          score.win+=1;
+
+        if (result === 'win') {
+          score.win += 1;
+        } else if (result === 'lose') {
+          score.losses += 1;
+        } else if (result === 'tie') {
+          score.ties += 1;
         }
-        else if(result==='lose')
-        {
-    score.losses+=1;
-        }
-        else if (result==='tie')
-        {
-          score.ties+=1;
-        }
-        localStorage.setItem('score',JSON.stringify(score));
+        
+        localStorage.setItem('score', JSON.stringify(score));
 
         alert(`You picked ${playerMove}!, computer picked ${computerMove} and result is = ${result}
-        wins: ${score.win},ties: ${score.ties},losses: ${score.losses}`);
+        wins: ${score.win}, ties: ${score.ties}, losses: ${score.losses}`);
       }
       
       function pickComputerMove() {
