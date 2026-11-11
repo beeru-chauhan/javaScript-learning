@@ -14,10 +14,30 @@
   font-weight:bold;
   border-radius:50px;
   cursor:pointer;
+  margin-bottom:30px;
 }
 .is-subscribed{
   background-color:gray;
   color:black;
+}
+.cost-order-input{
+  font-size:16px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+}
+.calculate-button{
+  background-color: green;
+  color:white;
+  border:none;
+  padding-top:13px;
+  padding-bottom:13px;
+  padding-left:15px;
+  padding-right:15px;
+  font-weight:bold;
+  
+  cursor:pointer;
 }
 </style>
   </head>
@@ -32,12 +52,12 @@
      <p>
     Amazon Shipping Calculator
      </p>
-     <input placeholder="cost of order" class="js-input-cost" onkeydown="
+     <input placeholder="cost of order" class="js-input-cost cost-order-input" onkeydown="
      handleCostkeydown(event);
      ">
      <button onclick="
      CalculateTotal();
-     ">Calculate</button>
+     " class="calculate-button">Calculate</button>
      <p class="js-total-cost"></p>
     <script>
       function handleCostkeydown(event)
@@ -68,6 +88,7 @@ const subscribeElement=document.querySelector('.js-subscribe-button');
      else
      {
       subscribeElement.innerHTML='subscribe';
+      subscribeElement.classList.remove('is-subscribed');
      }
 }
     </script>
