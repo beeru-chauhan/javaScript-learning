@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <style>
+      body{
+        background-color: rgb(25, 25, 25);
+        color: white;
+        font-family: Arial;
+      }
+      .text-center {
+        font-weight: bold;
+      }
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .move-icon {
+        height: 50px;
+      }
+      .move-button{
+        background-color: transparent;
+        border: none;
+        height: 100px; 
+        width: 100px;
+        cursor: pointer;
+      }
+      .result{
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
+      .move{ 
+        margin-bottom: 40px;
+      }
+      .reset-score-button{
+        font-size: 20px;
+        border: none;
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text-center title">
+      rock paper scissors
+    </p>
+
+    <button onclick="playgame('rock');" class="move-button">
+      <img src="images/rock.png" class="move-icon">
+    </button>
+    <button onclick="playgame('paper');" class="move-button">
+      <img src="images/paper.png" class="move-icon">
+    </button>
+    <button onclick="playgame('scissors');" class="move-button">
+      <img src="images/scissors.png" class="move-icon">
+    </button>
+    <P class="js-result result"></P>
+
+    <p class="js-moves move">
+    </p>
+    <p class="js-update "></p>
+    <button onclick="
+      score.win = 0;
+      score.ties = 0;
+      score.losses = 0;
+      localStorage.removeItem('score');
+      updateScore();
+    " class="reset-score-button">restart score</button>  
+
+
+    <script>
+      
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        win: 0,
+        ties: 0,
+        losses: 0
+      };
+      updateScore();
+
+      function playgame(playerMove) {
+        const computerMove = pickComputerMove();
+        let result = '';
+
+        if (playerMove === 'scissors') {
+          if (computerMove === 'rock') {
+            result = 'lose';
+          } else if (computerMove === 'paper') {
+            result = 'win';
+          } else if (computerMove === 'scissors') {
+            result = 'tie';
+          }
+        } else if (playerMove === 'paper') {
+          if (computerMove === 'rock') {
+            result = 'win';
+          } else if (computerMove === 'paper') {
+            result = 'tie';
+          } else if (computerMove === 'scissors') {
+            result = 'lose';
+          }
+        } else if (playerMove === 'rock') {
+          if (computerMove === 'rock') {
+            result = 'tie';
+          } else if (computerMove === 'paper') {
+            result = 'lose';
+          } else if (computerMove === 'scissors') {
+            result = 'win';
+          }
+        }
+
+        if (result === 'win') {
+          score.win += 1;
+        } else if (result === 'lose') {
+          score.losses += 1;
+        } else if (result === 'tie') {
+          score.ties += 1;
+        }
+       
+        updateScore();
+        document.querySelector('.js-result').innerHTML=`you ${result}`;
+        document.querySelector('.js-moves').innerHTML=` you <img src="images/${playerMove}.png" class="move-icon"> - computer <img src="images/${computerMove}.png" class="move-icon">`;
+        localStorage.setItem('score', JSON.stringify(score));
+
+        
+      }
+      
+      function updateScore()
+      {
+document.querySelector('.js-update').innerHTML=`wins: ${score.win}, ties: ${score.ties}, losses: ${score.losses}`;
+      }
+      
+      function pickComputerMove() {
+        const randomNumber = Math.random();
+        let computerMove = '';
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = 'rock';
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          computerMove = 'paper';
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          computerMove = 'scissors';
+        }
+
+        console.log(computerMove);
+        return computerMove;
+      }
+    </script>
+  </body>
+</html>
