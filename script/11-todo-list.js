@@ -13,13 +13,14 @@ for(let index=0; index<todoList.length; index++)
   const todoObject=todoList[index];
   const name=todoObject.name;
   const dueDate =todoObject.dueDate;
-  todoListHTML+=`<p>
-  ${name}  ${dueDate}
+  todoListHTML+=`<div>
+  ${name}</div>
+  <div>${dueDate}</div>
   <button onclick="
   todoList.splice(${index},1);
   rendertodo();
-  ">delete</button>
-  </p>`;
+  " class="delete-todo-button">delete</button>
+  `;
 
 }
 console.log(todoListHTML);
@@ -30,11 +31,12 @@ function addTodo()
 const inputElement=document.querySelector(".js-name-input");
 const name=inputElement.value;
 const dateInputElement=document.querySelector('.js-due-date-input');
-const date=dateInputElement.value;
+const dueDate=dateInputElement.value;
 todoList.push(
   {name,
   dueDate});
 console.log(todoList);
 inputElement.value="";
+dateInputElement.value='';
 rendertodo();
 }
