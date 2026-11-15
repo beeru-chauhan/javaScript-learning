@@ -45,6 +45,7 @@
       console.log(todoList[index]);
      }
       */
+     /*
      const numbers=[1, 2, 3, 4, 5];
      let sum=0;
      for (let index=0; index<numbers.length; index++)
@@ -52,6 +53,52 @@
       sum=sum+numbers[index];
      }
       console.log(sum);
+      */
+     /*
+     const ar=[1,2,3];
+     const arr=ar.slice(1,1);
+     arr.push(4);
+     console.log(ar);
+     console.log(arr);
+     const[n,n1]=ar;
+     console.log(n);
+     console.log(n1);
+     for( let i=0;i<10;i++){
+      if (i===3)
+     {
+      continue;
+     }
+      console.log(i);
+     
+      if(i===8)
+     {
+      break;
+     }
+     }
+     let n2=1;
+     while(n2<11)
+     {
+      if(n2%3===0)
+     {
+      n2++;
+      continue;
+     }
+      console.log(n2);
+      n2++;
+     }
+      */
+     function doubleArray(nums)
+     {
+      const doubledNums=[];
+      for(let i=0;i<nums.length;i++)
+     {
+      const num=nums[i];
+      doubledNums.push(num*2);
+    
+     }
+     console.log(doubledNums);
+     }
+     doubleArray([1,2,3]);
     </script>
   </body>
 </html>
