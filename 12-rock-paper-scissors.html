@@ -50,13 +50,13 @@
       rock paper scissors
     </p>
 
-    <button onclick="playgame('rock');" class="move-button">
+    <button class="move-button js-rock-button" >
       <img src="images/rock.png" class="move-icon">
     </button>
-    <button onclick="playgame('paper');" class="move-button">
+    <button  class="move-button js-paper-button" >
       <img src="images/paper.png" class="move-icon">
     </button>
-    <button onclick="playgame('scissors');" class="move-button">
+    <button  class="move-button js-scissors-button">
       <img src="images/scissors.png" class="move-icon">
     </button>
     <P class="js-result result"></P>
@@ -77,6 +77,27 @@
 
 
     <script>
+      document.querySelector('.js-rock-button').addEventListener('click',()=>{
+        playgame('rock');
+      });
+      document.querySelector('.js-paper-button').addEventListener('click',()=>{
+        playgame('paper');
+      });
+      document.querySelector('.js-scissors-button').addEventListener('click',()=>{
+        playgame('scissors');
+      });
+      document.body.addEventListener('keydown',()=>{
+if (event.key==='r')
+{
+  playgame('rock');
+}else if(event.key==='p')
+{
+  playgame('paper');
+}else if(event.key==='s')
+{
+  playgame('scissors');
+}
+      });
       
       let score = JSON.parse(localStorage.getItem('score')) || {
         win: 0,

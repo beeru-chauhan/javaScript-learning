@@ -8,7 +8,7 @@ rendertodo();
 function rendertodo()
 {
 let todoListHTML='';
-todoList.forEach(function(todoObject,index)
+todoList.forEach((todoObject,index)=>
 {
   
   const name=todoObject.name;

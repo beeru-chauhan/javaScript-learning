@@ -4,8 +4,19 @@
     <title>advanced functions</title>
   </head>
   <body>
+    <button onclick="" class="js-button">click</button>
     
     <script>
+      const eventListener1=()=>{
+      console.log('click');
+    };
+    const buttonElement=  document.querySelector('.js-button');
+    buttonElement.addEventListener('click',eventListener1);
+   
+    buttonElement.addEventListener('click',()=>{
+      console.log('click1');
+    });
+    buttonElement.removeEventListener('click',eventListener1);
       /*
       function greeting(){
         console.log('hello');
@@ -45,11 +56,12 @@ setInterval(function(){
   console.log('interval');
 },3000)
 */
+/*
 [
   'neme',
   'address',
   'chauhan'
-].forEach(function(value,index)
+].forEach((value,index)=>
 { 
   if(value==='address')
 {
@@ -58,11 +70,31 @@ setInterval(function(){
   console.log(index);
   console.log(value);
 });
-const arrowfunction=()=>
+const normal=function(param,param1)
+{
+  console.log('hello');
+  return 5;
+}
+const arrowfunction=(param,param1)=>
 {
 console.log('hello');
 }
+const arrowfunction1=param=>{
+  console.log(param+1);
+}
+const arrowfunction2=()=>2+3;
 arrowfunction();
+arrowfunction1(3);
+console.log(arrowfunction2());
+const object2={ 
+  method:()=>{
+
+  }, 
+  method1:{
+
+  }
+};
+*/
     </script>
   </body>
 </html>
